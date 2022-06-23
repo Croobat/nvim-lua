@@ -61,6 +61,6 @@ vim.g.dracula_colors = {
   --bg = "#242630",
   bg = "#282A36",
   --comment = "#778bc7",
-  comment = "#6272A4",
+  comment = "#7a8bcc",
 }
 vim.cmd[[colorscheme dracula]]
