@@ -5,7 +5,7 @@ o = vim.opt
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
-  cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+  cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp
   conceallevel = 0,                        -- `` visible md files
   fileencoding = "utf-8",                  -- the encoding written to a file
@@ -23,7 +23,7 @@ local options = {
   swapfile = false,                        -- creates a swapfile
   termguicolors = true,                    -- set term gui colors (most terminals support this)
   timeoutlen = 400,                        -- time to wait for a mapped sequence to complete
-  undofile = true,                         -- enable persistent undo
+  undofile = true,                        -- disable persistent undo
   updatetime = 300,                        -- faster completion (4000ms default)
   writebackup = false,                     -- if a file is being edited it cant be edited at same time
   expandtab = true,                        -- convert tabs to spaces
@@ -34,11 +34,11 @@ local options = {
   relativenumber = false,                  -- set relative numbered lines
   numberwidth = 2,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign colum
-  wrap = true,                             -- display lines as one long line
+  wrap = false,                             -- display lines as one long line
   lisp = true,                             -- indentation when line break
   scrolloff = 8,                           -- minimum distance cursor-border
   sidescrolloff = 8,
-  guifont = "JetBrainsMono Nerd Font:h18", -- the font used in graphical neovim applications
+  guifont = "JetBrainsMono Nerd Font:h13", -- the font used in graphical neovim applications
   fdm = "marker",				-- Marker fold method {{{}}}
 }
 --formatoptions-=cro,			-- Stop newline comment continuation
@@ -52,10 +52,15 @@ for k, v in pairs(options) do -- abreviando vim.opt.x con local options y o
 end
 
 -- laststatus = 2
--- statusline = %m\ %F\ %y\ %{&fileencoding?&fileencoding:&encoding}\ %=%(C:%c\ L:%l\ %P%)
+--set statusline = %m\ %F\ %y\ %{&fileencoding?&fileencoding:&encoding}\ %=%(C:%c\ L:%l\ %P%)
 
 vim.cmd "set whichwrap+=<,>,[,],h,l" 		
---vim.cmd [[set formatoptions-=cro]]	        -- TODO: this doesn't seem to work
 vim.cmd "set formatoptions-=cro"	        -- TODO: this doesn't seem to work
 
-vim.cmd "colorscheme desert"
+vim.g.dracula_colors = {
+  --bg = "#242630",
+  bg = "#282A36",
+  --comment = "#778bc7",
+  comment = "#6272A4",
+}
+vim.cmd[[colorscheme dracula]]

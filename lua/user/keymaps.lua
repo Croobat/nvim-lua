@@ -36,7 +36,7 @@ keymap("n", "Q", "<Nop>", opts)
   keymap("n", "<A-l>", "<C-w>l", opts)
 
   -- Explorer
-  keymap("n", "<leader>e", ":Lex 20<cr>", opts)
+  keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
   -- Resize with arrows
   keymap("n", "<C-Up>", ":resize +2<CR>", opts)
