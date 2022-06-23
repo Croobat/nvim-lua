@@ -1,5 +1,4 @@
 -- :help options
---
 
 o = vim.opt
 
@@ -18,9 +17,10 @@ local options = {
   showtabline = 1,                         -- show tabs if >=2
   smartcase = true,                        -- smart case
   smartindent = true,                      -- make indenting smarter again
+  autoindent = true,
   splitbelow = true,                       -- horizontal splits to go below current window
   splitright = true,                       -- vertical splits to go to the right of current window
-  swapfile = false,                       -- creates a swapfile
+  swapfile = false,                        -- creates a swapfile
   termguicolors = true,                    -- set term gui colors (most terminals support this)
   timeoutlen = 400,                        -- time to wait for a mapped sequence to complete
   undofile = true,                         -- enable persistent undo
@@ -34,7 +34,8 @@ local options = {
   relativenumber = false,                  -- set relative numbered lines
   numberwidth = 2,                         -- set number column width to 2 {default 4}
   signcolumn = "yes",                      -- always show the sign colum
-  wrap = true,                            -- display lines as one long line
+  wrap = true,                             -- display lines as one long line
+  lisp = true,                             -- indentation when line break
   scrolloff = 8,                           -- minimum distance cursor-border
   sidescrolloff = 8,
   guifont = "JetBrainsMono Nerd Font:h18", -- the font used in graphical neovim applications
@@ -54,5 +55,7 @@ end
 -- statusline = %m\ %F\ %y\ %{&fileencoding?&fileencoding:&encoding}\ %=%(C:%c\ L:%l\ %P%)
 
 vim.cmd "set whichwrap+=<,>,[,],h,l" 		
-vim.cmd [[set iskeyword+=-]] 			-- separate words by dashes
-vim.cmd [[set formatoptions-=cro]]	        -- TODO: this doesn't seem to work
+--vim.cmd [[set formatoptions-=cro]]	        -- TODO: this doesn't seem to work
+vim.cmd "set formatoptions-=cro"	        -- TODO: this doesn't seem to work
+
+vim.cmd "colorscheme desert"
