@@ -106,6 +106,9 @@ cmp.setup {
       --vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[NVIM_LUA]",
+        npm = "[NPM]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
@@ -114,11 +117,12 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = "nvim_lua" },  -- Lua completion
     { name = "nvim_lsp" },  -- Lsp completion
     { name = "npm" },       -- npm completions when in package.json
     { name = "luasnip" },   -- Main snippets
-    { name = "buffer" },
-    { name = "path" },
+    { name = "buffer" },    -- Text completion
+    { name = "path" },      -- Folder path completion
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

@@ -67,6 +67,7 @@ return packer.startup(function(use)
     use "saadparwaiz1/cmp_luasnip"        -- snippet completions
     use "David-Kunz/cmp-npm"              -- npm completions
     use "hrsh7th/cmp-nvim-lsp"            -- lsp completions
+    use "hrsh7th/cmp-nvim-lua"            -- lua completions
     -- snippets
     use "L3MON4D3/LuaSnip"                -- snippet engine
     use "rafamadriz/friendly-snippets"    -- a bunch of snippets to use
