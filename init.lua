@@ -1,3 +1,5 @@
-require "user.options"			-- General options
-require "user.keymaps"      -- Key bindings
-require "user.plugins"      -- Plugins
+require "user.options"			    -- General options
+require "user.keymaps"          -- Key bindings
+require "user.plugins"          -- Plugins
+require "user.colorscheme"
+

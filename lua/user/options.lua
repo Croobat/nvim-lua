@@ -51,11 +51,8 @@ for k, v in pairs(options) do -- abreviando vim.opt.x con local options y o
   o[k] = v
 end
 
--- laststatus = 2
---set statusline = %m\ %F\ %y\ %{&fileencoding?&fileencoding:&encoding}\ %=%(C:%c\ L:%l\ %P%)
-
-vim.cmd "set whichwrap+=<,>,[,],h,l" 		
-vim.cmd "set formatoptions-=cro"	        -- TODO: this doesn't seem to work
+vim.cmd "set whichwrap+=<,>,[,],h,l" 		                  -- More wraps
+vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]] -- Disable autocoment
 
 vim.g.dracula_colors = {
   --bg = "#242630",
@@ -63,4 +60,3 @@ vim.g.dracula_colors = {
   --comment = "#778bc7",
   comment = "#7a8bcc",
 }
-vim.cmd[[colorscheme dracula]]

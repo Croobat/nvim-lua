@@ -1,19 +1,26 @@
-local opts = { noremap = true, silent = true }
+--## Setup ## {{{
 
-local term_opts = { silent = true }
+  local opts = { noremap = true, silent = true }
 
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+  local term_opts = { silent = true }
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+  -- Shorten function name
+  local keymap = vim.api.nvim_set_keymap
 
---Disable Ex maps
-keymap("", ":q", "<Nop>", opts)
-keymap("n", "Q", "<Nop>", opts)
+--}}}
 
+--## Disable mappings ## {{{
+
+  --Remap space as leader key
+  keymap("", "<Space>", "<Nop>", opts)
+  vim.g.mapleader = " "
+  vim.g.maplocalleader = " "
+
+  --Disable Ex maps
+  keymap("", ":q", "<Nop>", opts)
+  keymap("n", "Q", "<Nop>", opts)
+
+--}}}
 
 -- Modes
 --   normal_mode = "n",
@@ -63,9 +70,14 @@ keymap("n", "Q", "<Nop>", opts)
   keymap("n", ",", "za", opts)
   keymap("n", "<leader>m", "<esc>I## {{{<CR>  <backspace><CR>}}}<esc>kkI##  <esc>i", opts)
 
-  -- Insert line
-  keymap("n", "<enter>", "o<esc>", opts)
-  keymap("n", "<A-enter>", "O<esc>", opts)
+  -- Insert things
+    -- Line
+    keymap("n", "<enter>", "o<esc>", opts)
+    keymap("n", "<A-enter>", "O<esc>", opts)
+    -- Space
+    keymap("n", "<leader><leader>", "i <esc>l", opts)
+    -- Colon
+    keymap("n", "<leader>;", "A;<esc>", opts)
 
   -- Word Wrap
   keymap("n", "<A-z>", ":set wrap!<CR>", opts)
