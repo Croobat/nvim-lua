@@ -50,9 +50,30 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   -- }}}
 
-  --## Syntax ## {{{
-    use "rstacruz/vim-closer" -- Autoclose parens
-  --}}}
+  --## LSP (Language Server Protocol ##{{{
+    use "neovim/nvim-lspconfig"            -- enable LSP
+    use "williamboman/nvim-lsp-installer"  -- simple to use language server installer
+    --use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+    --use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+--}}}
+
+  --## Completion ## {{{
+    -- nvim-cmp
+    use "hrsh7th/nvim-cmp"                -- The completion plugin
+    use "hrsh7th/cmp-buffer"              -- buffer completions
+    use "hrsh7th/cmp-path"                -- path completions
+    use "hrsh7th/cmp-cmdline"             -- cmdline completions
+    use "saadparwaiz1/cmp_luasnip"        -- snippet completions
+    use "David-Kunz/cmp-npm"              -- npm completions
+    use "hrsh7th/cmp-nvim-lsp"            -- lsp completions
+    -- snippets
+    use "L3MON4D3/LuaSnip"                -- snippet engine
+    use "rafamadriz/friendly-snippets"    -- a bunch of snippets to use
+
+    -- completion plugins
+    use "rstacruz/vim-closer"              -- Autoclose parens
+--}}}
 
   --## Compile ## {{{
     -- Markdown preview
@@ -83,24 +104,6 @@ return packer.startup(function(use)
   -- use "goolord/alpha-nvim"
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   -- use "folke/which-key.nvim"
-
-  -- cmp plugins
-  -- use "hrsh7th/nvim-cmp" -- The completion plugin
-  -- use "hrsh7th/cmp-buffer" -- buffer completions
-  -- use "hrsh7th/cmp-path" -- path completions
-  -- use "hrsh7th/cmp-cmdline" -- cmdline completions
-  -- use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  -- use "hrsh7th/cmp-nvim-lsp"
-
-  -- snippets
-  -- use "L3MON4D3/LuaSnip" --snippet engine
-  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
-  -- LSP
-  -- use "neovim/nvim-lspconfig" -- enable LSP
-  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
   -- Telescope
   -- use "nvim-telescope/telescope.nvim"

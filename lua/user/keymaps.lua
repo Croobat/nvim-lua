@@ -43,7 +43,7 @@
   keymap("n", "<A-l>", "<C-w>l", opts)
 
   -- Explorer
-  keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+  keymap("n", "<leader>e", ":Lex 25<cr>", opts)
 
   -- Resize with arrows
   keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -78,6 +78,8 @@
     keymap("n", "<leader><leader>", "i <esc>l", opts)
     -- Colon
     keymap("n", "<leader>;", "A;<esc>", opts)
+    -- Comma
+    keymap("n", "<leader>,", "A,<esc>", opts)
 
   -- Word Wrap
   keymap("n", "<A-z>", ":set wrap!<CR>", opts)
