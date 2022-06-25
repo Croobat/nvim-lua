@@ -82,7 +82,6 @@ return packer.startup(function(use)
 
 --## Navigation ##{{{
     use "nvim-telescope/telescope.nvim" -- Telescope fuzzy finder
-
     use "kyazdani42/nvim-tree.lua"      -- tree fm
 --}}}
 
@@ -101,7 +100,7 @@ return packer.startup(function(use)
     use "JoosepAlviste/nvim-ts-context-commentstring" --contextual comments
 
     use "norcalli/nvim-colorizer.lua"                 --hex visual colors
-    use "lewis6991/gitsigns.nvim"                     -- git symbols
+    use "lewis6991/gitsigns.nvim"                     --git symbols
 
     -- Colorschemes
     use "lunarvim/colorschemes"
@@ -111,10 +110,11 @@ return packer.startup(function(use)
     use "ellisonleao/gruvbox.nvim"
     use "shaunsingh/nord.nvim"
 
+    use 'kyazdani42/nvim-web-devicons'                --extra icons
+
   --}}}
 
 --## asdf ## {{{
-  -- use "kyazdani42/nvim-web-devicons"
   -- use "akinsho/bufferline.nvim"
   -- use "moll/vim-bbye"
   -- use "nvim-lualine/lualine.nvim"

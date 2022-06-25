@@ -12,3 +12,4 @@ require "user.nvim-colorizer"   -- Hex colors
 require "user.autopairs"        -- Auto close parens
 require "user.comment"          -- Smart comments
 require "user.gitsigns"         -- Git symbols
+require "user.nvim-tree"        -- better file explorer
