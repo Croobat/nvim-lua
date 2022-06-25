@@ -113,11 +113,11 @@ return packer.startup(function(use)
     use "shaunsingh/nord.nvim"
 
     use 'kyazdani42/nvim-web-devicons'                --extra icons
+    use "nvim-lualine/lualine.nvim"                   --custom info line
 
   --}}}
 
 --## asdf ## {{{
-  -- use "nvim-lualine/lualine.nvim"
   -- use "akinsho/toggleterm.nvim"
   -- use "ahmedkhalf/project.nvim"
   -- use "lewis6991/impatient.nvim"
