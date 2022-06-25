@@ -59,6 +59,13 @@ return packer.startup(function(use)
 --}}}
 
   --## Completion ## {{{
+    -- completion plugins
+    use {                                 -- auto parens
+    "windwp/nvim-autopairs",
+    config = function() require("nvim-autopairs").setup {} end
+    }
+    use "numToStr/Comment.nvim"            -- Easy comments
+
     -- nvim-cmp
     use "hrsh7th/nvim-cmp"                -- The completion plugin
     use "hrsh7th/cmp-buffer"              -- buffer completions
@@ -71,9 +78,6 @@ return packer.startup(function(use)
     -- snippets
     use "L3MON4D3/LuaSnip"                -- snippet engine
     use "rafamadriz/friendly-snippets"    -- a bunch of snippets to use
-
-    -- completion plugins
-    use "rstacruz/vim-closer"              -- Autoclose parens
 --}}}
 
 --## Navigation ##{{{
@@ -92,10 +96,10 @@ return packer.startup(function(use)
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
     }
-    use "p00f/nvim-ts-rainbow"
-    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use "p00f/nvim-ts-rainbow"                        --rainbow parens
+    use "JoosepAlviste/nvim-ts-context-commentstring" --contextual comments
 
-    use "norcalli/nvim-colorizer.lua"
+    use "norcalli/nvim-colorizer.lua"                 --hex visual colors
 
     -- Colorschemes
     use "lunarvim/colorschemes"

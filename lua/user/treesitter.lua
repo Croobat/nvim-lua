@@ -7,6 +7,9 @@ configs.setup {
   ensure_installed = "all",
   sync_install = false,
   ignore_install = { "" }, -- List of parsers to ignore installing
+  autopairs = {
+    enable = true;
+  },
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
@@ -24,4 +27,9 @@ configs.setup {
     colors = {'#f1fa8c','#ff92d0','#9aedfe','#5af78e','#caa9fa'}, -- gui hex colors
     --termcolors = {'lightblue', 'lightgreen', 'yellow', 'red', 'magenta'} -- table of colour name strings
   },
+
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  }
 }

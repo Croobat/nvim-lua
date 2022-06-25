@@ -9,3 +9,5 @@ require "user.lsp"              -- LSP config
 require "user.telescope"        -- Fuzzy finder
 require "user.treesitter"       -- Better syntax highlighting
 require "user.nvim-colorizer"   -- Hex colors
+require "user.autopairs"        -- Auto close parens
+require "user.comment"          -- Smart comments
