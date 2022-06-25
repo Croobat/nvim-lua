@@ -79,7 +79,13 @@ return packer.startup(function(use)
     require('textcase').setup {}
   end
   }
+  use "tpope/vim-repeat"                -- Repeat for more actions
 
+  -- more objects
+  use "kana/vim-textobj-user"           -- custom text objects
+  use "michaeljsmith/vim-indent-object" -- indent (ai, ii)
+  use "kana/vim-textobj-entire"         -- entire (ae, ie)
+  use "kana/vim-textobj-line"           -- significant line
 
   -- nvim-cmp
   use "hrsh7th/nvim-cmp"                -- The completion plugin
@@ -140,13 +146,7 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"                   --custom info line
   use "lukas-reineke/indent-blankline.nvim"         --indent lines
   use "folke/which-key.nvim"                        --key reminder
-
---}}}
-
---## asdf ## {{{
-
--- Git
--- use "lewis6991/gitsigns.nvim"
+  use "folke/zen-mode.nvim"                         -- zen mode
 --}}}
 
 --## EOF ## {{{

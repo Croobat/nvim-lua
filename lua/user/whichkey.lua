@@ -99,6 +99,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },  --Find text
   ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["z"] = { "<cmd>:ZenMode<cr>", "Zen mode" },
   ["<leader>"] = { "i <esc>l", "Insert space" },
   [";"] = { "A;<esc>", "Insert semicolon" },
   [","] = { "A,<esc>", "Insert comma" },
