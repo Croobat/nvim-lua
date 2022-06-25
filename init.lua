@@ -4,3 +4,4 @@ require "user.plugins"          -- Plugins
 require "user.colorscheme"      -- Color scheme
 require "user.cmp"              -- Completion config
 require "user.lsp"              -- LSP config
+require "user.telescope"        -- Fuzzy finder

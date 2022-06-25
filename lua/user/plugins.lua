@@ -50,7 +50,7 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   -- }}}
 
-  --## LSP (Language Server Protocol ##{{{
+  --## LSP (Language Server Protocol) ##{{{
     use "neovim/nvim-lspconfig"            -- enable LSP
     use "williamboman/nvim-lsp-installer"  -- simple to use language server installer
     --use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
@@ -74,6 +74,11 @@ return packer.startup(function(use)
 
     -- completion plugins
     use "rstacruz/vim-closer"              -- Autoclose parens
+--}}}
+
+--## Navigation ##{{{
+    --Telescope
+    use "nvim-telescope/telescope.nvim" -- Telescope fuzzy finder
 --}}}
 
   --## Compile ## {{{
@@ -106,8 +111,6 @@ return packer.startup(function(use)
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   -- use "folke/which-key.nvim"
 
-  -- Telescope
-  -- use "nvim-telescope/telescope.nvim"
 
   -- Treesitter
   -- use {

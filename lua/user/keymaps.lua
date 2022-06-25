@@ -87,6 +87,13 @@
   -- Better pasting
   keymap("n", "<c-p>", "pg;h", opts)
 
+  -- Telescope
+  keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+  keymap("n", "<leader>t", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+  --keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
+  --keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
+  --keymap("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>", opts)
+  --keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
 --}}}
 
 --## Insert ## {{{
