@@ -81,6 +81,7 @@ local opts = {
 }
 
 local mappings = {
+  ["/"] = { "<cmd>lua require(\"Comment.api\").toggle_current_linewise()<cr>", "Comment" },                --Start page
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },                --Start page
   ["b"] = {                                             --Telescope buffers
     "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
@@ -96,7 +97,7 @@ local mappings = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
   },
-  ["t"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },  --Find text
+  ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },  --Find text
   ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["<leader>"] = { "i <esc>l", "Insert space" },
   [";"] = { "A;<esc>", "Insert semicolon" },
@@ -150,7 +151,8 @@ local mappings = {
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
     j = {
-      "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      -- "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+      "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next Diagnostic",
     },
     k = {
@@ -159,6 +161,7 @@ local mappings = {
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+    -- q = { "<cmd>lua vim.lsp.diagnostic.setloclist()<cr>", "Quickfix" },
     r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
@@ -178,15 +181,16 @@ local mappings = {
     C = { "<cmd>Telescope commands<cr>", "Commands" },
   },
 
-  T = {
+  t = {
     name = "Terminal",
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-    t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+    T = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+    h = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Horizontal" },
+    v = { "<cmd>ToggleTerm size=60 direction=vertical<cr>", "Vertical" },
+    t = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Vertical" },
   },
 }
 

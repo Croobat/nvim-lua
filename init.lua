@@ -29,3 +29,4 @@ require "user.impatient"        -- Vim impatient
 require "user.indentline"       -- See indent lines
 require "user.alpha"            -- Greeter
 require "user.whichkey"         -- key helper
+require "user.autocommands"     -- Run automatic commands
