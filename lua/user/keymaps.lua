@@ -94,6 +94,11 @@
   --keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
   --keymap("n", "<leader>f", "<cmd>Telescope find_files theme=ivy<cr>", opts)
   --keymap("n", "<c-t>", "<cmd>Telescope live_grep<cr>", opts)
+
+  -- Gitsigns
+  keymap("n", "<leader>gh", ":Gitsigns next_hunk<cr>", opts)
+  keymap("n", "<leader>gH", ":Gitsigns prev_hunk<cr>", opts)
+  keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 --}}}
 
 --## Insert ## {{{
