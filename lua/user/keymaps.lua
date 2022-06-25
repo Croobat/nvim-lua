@@ -104,6 +104,10 @@
 
   -- Bbye
   keymap("n", "QQ", ":Bdelete<cr>", opts)
+
+  -- Null-ls (formatting)
+  keymap("n", "<leader>f", ":Format<cr>", opts)
+
 --}}}
 
 --## Insert ## {{{
@@ -144,7 +148,7 @@
   --faster scrolling
   keymap("n", "<C-j>", "5j", opts)
   keymap("n", "<C-k>", "5k", opts)
-  
+
 --}}}
 
 --## Terminal ## {{{
