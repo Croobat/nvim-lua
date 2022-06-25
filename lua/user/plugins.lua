@@ -38,7 +38,6 @@ local fn = vim.fn
       end,
     },
   }
-  
 
 return packer.startup(function(use)
 --}}}
@@ -50,7 +49,8 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   -- }}}
 
-  --## LSP (Language Server Protocol) ##{{{
+  --## Syntax ##{{{
+    -- LSP (Language Server Protocol)
     use "neovim/nvim-lspconfig"            -- enable LSP
     use "williamboman/nvim-lsp-installer"  -- simple to use language server installer
     --use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
@@ -86,13 +86,25 @@ return packer.startup(function(use)
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   -- }}}
 
-  --## Colorschemes ## {{{
+  --## Visuals ## {{{
+    -- Treesitter
+    use {
+      "nvim-treesitter/nvim-treesitter",
+      run = ":TSUpdate",
+    }
+    use "p00f/nvim-ts-rainbow"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+
+    use "norcalli/nvim-colorizer.lua"
+
+    -- Colorschemes
     use "lunarvim/colorschemes"
     use "lunarvim/darkplus.nvim"
     use "Mofiqul/dracula.nvim"
     use "navarasu/onedark.nvim"
     use "ellisonleao/gruvbox.nvim"
     use "shaunsingh/nord.nvim"
+
   --}}}
 
 --## asdf ## {{{
@@ -110,14 +122,6 @@ return packer.startup(function(use)
   -- use "goolord/alpha-nvim"
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
   -- use "folke/which-key.nvim"
-
-
-  -- Treesitter
-  -- use {
-    -- "nvim-treesitter/nvim-treesitter",
-    -- run = ":TSUpdate",
-  -- }
-  -- use "JoosepAlviste/nvim-ts-context-commentstring"
 
   -- Git
   -- use "lewis6991/gitsigns.nvim"
