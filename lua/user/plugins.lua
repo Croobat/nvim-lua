@@ -44,9 +44,10 @@ return packer.startup(function(use)
 
 --   PLUGINS
   -- ## Mandatory ## {{{
-    use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use "wbthomason/packer.nvim"   -- Have packer manage itself
+    use "nvim-lua/popup.nvim"      -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim"    -- Useful lua functions used ny lots of plugins
+    use "lewis6991/impatient.nvim" -- Faster startup
   -- }}}
 
   --## Syntax ##{{{
@@ -123,7 +124,6 @@ return packer.startup(function(use)
   --}}}
 
 --## asdf ## {{{
-  -- use "lewis6991/impatient.nvim"
   -- use "lukas-reineke/indent-blankline.nvim"
   -- use "goolord/alpha-nvim"
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
