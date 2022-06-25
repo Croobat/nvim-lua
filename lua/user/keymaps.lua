@@ -108,6 +108,13 @@
   -- Null-ls (formatting)
   keymap("n", "<leader>f", ":Format<cr>", opts)
 
+  -- Toggleterm
+  keymap("n", "\\g", ":lua _LAZYGIT_TOGGLE()<cr>", opts)
+  keymap("n", "\\n", ":lua _NODE_TOGGLE()<cr>", opts)
+  keymap("n", "\\d", ":lua _NCDU_TOGGLE()<cr>", opts)
+  keymap("n", "\\h", ":lua _HTOP_TOGGLE()<cr>", opts)
+  keymap("n", "\\p", ":lua _PYTHON_TOGGLE()<cr>", opts)
+
 --}}}
 
 --## Insert ## {{{

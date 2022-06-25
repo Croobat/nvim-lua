@@ -83,8 +83,10 @@ return packer.startup(function(use)
 --## Navigation ##{{{
     use "nvim-telescope/telescope.nvim" -- Telescope fuzzy finder
     use "kyazdani42/nvim-tree.lua"      -- tree fm
-    use "akinsho/bufferline.nvim"      -- buffer tabs
+    use "akinsho/bufferline.nvim"       -- buffer tabs
     use "moll/vim-bbye"
+
+    use "akinsho/toggleterm.nvim"       -- Toggle terminal
 --}}}
 
   --## Compile ## {{{
@@ -118,7 +120,6 @@ return packer.startup(function(use)
   --}}}
 
 --## asdf ## {{{
-  -- use "akinsho/toggleterm.nvim"
   -- use "ahmedkhalf/project.nvim"
   -- use "lewis6991/impatient.nvim"
   -- use "lukas-reineke/indent-blankline.nvim"

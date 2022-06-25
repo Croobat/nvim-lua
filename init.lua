@@ -15,3 +15,4 @@ require "user.gitsigns"         -- Git symbols
 require "user.nvim-tree"        -- better file explorer
 require "user.bufferline"       -- buffer tabs
 require "user.lualine"          -- custom info line
+require "user.toggleterm"       -- toggle terminal
