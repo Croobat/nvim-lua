@@ -66,6 +66,20 @@ return packer.startup(function(use)
   config = function() require("nvim-autopairs").setup {} end
   }
   use "numToStr/Comment.nvim"            -- Easy comments
+  use {
+    "ur4ltz/surround.nvim",
+    config = function()
+      require"surround".setup {mappings_style = "sandwich"}
+    end
+  }
+
+  use "sQVe/sort.nvim"                  -- Sort selection
+  use { "johmsalas/text-case.nvim",
+  config = function()
+    require('textcase').setup {}
+  end
+  }
+
 
   -- nvim-cmp
   use "hrsh7th/nvim-cmp"                -- The completion plugin
@@ -109,6 +123,7 @@ return packer.startup(function(use)
   }
   use "p00f/nvim-ts-rainbow"                        --rainbow parens
   use "JoosepAlviste/nvim-ts-context-commentstring" --contextual comments
+  use "windwp/nvim-ts-autotag"                      --autoclose tags
 
   use "norcalli/nvim-colorizer.lua"                 --hex visual colors
   use "lewis6991/gitsigns.nvim"                     --git symbols
