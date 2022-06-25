@@ -102,7 +102,7 @@
   keymap("n", "QQ", ":Bdelete<cr>", opts)
 
   -- Null-ls (formatting)
-  keymap("n", "<leader>f", ":Format<cr>", opts)
+  keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
 
   -- Toggleterm
   keymap("n", "\\g", ":lua _LAZYGIT_TOGGLE()<cr>", opts)
@@ -138,6 +138,10 @@
   keymap("v", "<A-k>", ":m .-2<CR>==", opts)
   keymap("v", "p", '"_dP', opts)
 
+  --faster scrolling
+  keymap("v", "<C-j>", "5j", opts)
+  keymap("v", "<C-k>", "5k", opts)
+
 --}}}
 
 --## Visual Block ## {{{
@@ -149,8 +153,8 @@
   keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
   --faster scrolling
-  keymap("n", "<C-j>", "5j", opts)
-  keymap("n", "<C-k>", "5k", opts)
+  keymap("x", "<C-j>", "5j", opts)
+  keymap("x", "<C-k>", "5k", opts)
 
 --}}}
 

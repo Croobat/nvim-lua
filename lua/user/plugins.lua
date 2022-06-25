@@ -54,7 +54,7 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig"            -- enable LSP
     use "williamboman/nvim-lsp-installer"  -- simple to use language server installer
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-    use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+    -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
 --}}}
 
@@ -82,11 +82,14 @@ return packer.startup(function(use)
 
 --## Navigation ##{{{
     use "nvim-telescope/telescope.nvim" -- Telescope fuzzy finder
+
     use "kyazdani42/nvim-tree.lua"      -- tree fm
     use "akinsho/bufferline.nvim"       -- buffer tabs
     use "moll/vim-bbye"
 
     use "akinsho/toggleterm.nvim"       -- Toggle terminal
+
+    use "ahmedkhalf/project.nvim"       -- Project start page
 --}}}
 
   --## Compile ## {{{
@@ -107,12 +110,12 @@ return packer.startup(function(use)
     use "lewis6991/gitsigns.nvim"                     --git symbols
 
     -- Colorschemes
-    use "lunarvim/colorschemes"
-    use "lunarvim/darkplus.nvim"
     use "Mofiqul/dracula.nvim"
-    use "navarasu/onedark.nvim"
-    use "ellisonleao/gruvbox.nvim"
-    use "shaunsingh/nord.nvim"
+    -- use "lunarvim/colorschemes"
+    -- use "lunarvim/darkplus.nvim"
+    -- use "navarasu/onedark.nvim"
+    -- use "ellisonleao/gruvbox.nvim"
+    -- use "shaunsingh/nord.nvim"
 
     use 'kyazdani42/nvim-web-devicons'                --extra icons
     use "nvim-lualine/lualine.nvim"                   --custom info line
@@ -120,7 +123,6 @@ return packer.startup(function(use)
   --}}}
 
 --## asdf ## {{{
-  -- use "ahmedkhalf/project.nvim"
   -- use "lewis6991/impatient.nvim"
   -- use "lukas-reineke/indent-blankline.nvim"
   -- use "goolord/alpha-nvim"
