@@ -13,7 +13,7 @@ local options = {
   ignorecase = true,                        -- ignore case in search patterns
   mouse = "a",                              -- allow mouse
   pumheight = 10,                           -- smaller pop up menu height
-  showmode = false,                         --  -- INSERT -- 
+  showmode = false,                         --  -- INSERT --
   showtabline = 1,                          -- show tabs if >=2
   smartcase = true,                         -- smart case
   smartindent = true,                       -- make indenting smarter again
@@ -42,7 +42,7 @@ local options = {
   fdm = "marker",				                    -- Marker fold method {{{}}}
 }
 
---o.shm:append "I"				                    -- Start screen
+o.shm:append "I"				                    -- Start screen
 o.shortmess:append "T" 	                		-- Truncate long messages
 o.shortmess:append "c"	                		-- Dont give ins-completion menu
 o.list.lcs = "tab:|"

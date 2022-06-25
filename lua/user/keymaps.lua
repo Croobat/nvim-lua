@@ -19,6 +19,7 @@
   --Disable Ex maps
   keymap("", ":q", "<Nop>", opts)
   keymap("n", "Q", "<Nop>", opts)
+  keymap("", "<leader>q", "<Nop>", opts)
 
 --}}}
 
@@ -100,6 +101,9 @@
   keymap("n", "<leader>gh", ":Gitsigns next_hunk<cr>", opts)
   keymap("n", "<leader>gH", ":Gitsigns prev_hunk<cr>", opts)
   keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
+
+  -- Bbye
+  keymap("n", "QQ", ":Bdelete<cr>", opts)
 --}}}
 
 --## Insert ## {{{
