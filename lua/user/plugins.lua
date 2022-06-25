@@ -90,7 +90,10 @@ return packer.startup(function(use)
 
   use "akinsho/toggleterm.nvim"       -- Toggle terminal
 
-  use "ahmedkhalf/project.nvim"       -- Project start page
+  use "ahmedkhalf/project.nvim"       -- Project manager
+
+  use "goolord/alpha-nvim"              -- Start page
+  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 --}}}
 
 --## Compile ## {{{
@@ -125,8 +128,6 @@ return packer.startup(function(use)
 --}}}
 
 --## asdf ## {{{
--- use "goolord/alpha-nvim"
--- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 -- use "folke/which-key.nvim"
 
 -- Git

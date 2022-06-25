@@ -27,3 +27,4 @@ require "user.toggleterm"       -- toggle terminal <5ms
 require "user.project"          -- Project startup page
 require "user.impatient"        -- Vim impatient
 require "user.indentline"       -- See indent lines
+require "user.alpha"            -- Greeter
