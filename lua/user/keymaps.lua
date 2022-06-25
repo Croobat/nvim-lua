@@ -45,7 +45,7 @@
 
   -- Explorer
   -- keymap("n", "<leader>e", ":Lex 25<cr>", opts)
-  keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
+  -- keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
   -- Resize with arrows
   keymap("n", "<C-Up>", ":resize +2<CR>", opts)
@@ -70,18 +70,18 @@
 
   -- Folding
   keymap("n", ",", "za", opts)
-  keymap("n", "<leader>m", "<esc>I## {{{<CR>  <backspace><CR>}}}<esc>kkI##  <esc>i", opts)
+  -- keymap("n", "<leader>m", "<esc>I## {{{<CR>  <backspace><CR>}}}<esc>kkI##  <esc>i", opts)
 
   -- Insert things
     -- Line
     keymap("n", "<enter>", "o<esc>", opts)
     keymap("n", "<A-enter>", "O<esc>", opts)
     -- Space
-    keymap("n", "<leader><leader>", "i <esc>l", opts)
+    -- keymap("n", "<leader><leader>", "i <esc>l", opts)
     -- Colon
-    keymap("n", "<leader>;", "A;<esc>", opts)
+    -- keymap("n", "<leader>;", "A;<esc>", opts)
     -- Comma
-    keymap("n", "<leader>,", "A,<esc>", opts)
+    -- keymap("n", "<leader>,", "A,<esc>", opts)
 
   -- Word Wrap
   keymap("n", "<A-z>", ":set wrap!<CR>", opts)
@@ -90,20 +90,20 @@
   keymap("n", "<c-p>", "pg;h", opts)
 
   -- Telescope
-  keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-  keymap("n", "<leader>t", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
-  keymap("n", "<leader>p", "<cmd>Telescope projects <cr>", opts)     --needs project.nvim
+  -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+  -- keymap("n", "<leader>t", "<cmd>Telescope live_grep theme=ivy<cr>", opts)
+  -- keymap("n", "<leader>p", "<cmd>Telescope projects <cr>", opts)     --needs project.nvim
 
   -- Gitsigns
-  keymap("n", "<leader>gh", ":Gitsigns next_hunk<cr>", opts)
-  keymap("n", "<leader>gH", ":Gitsigns prev_hunk<cr>", opts)
-  keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
+  -- keymap("n", "<leader>gh", ":Gitsigns next_hunk<cr>", opts)
+  -- keymap("n", "<leader>gH", ":Gitsigns prev_hunk<cr>", opts)
+  -- keymap("n", "<leader>gb", ":Gitsigns blame_line<cr>", opts)
 
   -- Bbye
   keymap("n", "QQ", ":Bdelete<cr>", opts)
 
   -- Null-ls (formatting)
-  keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
+  -- keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
 
   -- Toggleterm
   keymap("n", "\\g", ":lua _LAZYGIT_TOGGLE()<cr>", opts)

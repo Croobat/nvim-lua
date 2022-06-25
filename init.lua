@@ -28,3 +28,4 @@ require "user.project"          -- Project startup page
 require "user.impatient"        -- Vim impatient
 require "user.indentline"       -- See indent lines
 require "user.alpha"            -- Greeter
+require "user.whichkey"         -- key helper

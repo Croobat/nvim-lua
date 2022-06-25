@@ -124,11 +124,11 @@ return packer.startup(function(use)
   use 'kyazdani42/nvim-web-devicons'                --extra icons
   use "nvim-lualine/lualine.nvim"                   --custom info line
   use "lukas-reineke/indent-blankline.nvim"         --indent lines
+  use "folke/which-key.nvim"                        --key reminder
 
 --}}}
 
 --## asdf ## {{{
--- use "folke/which-key.nvim"
 
 -- Git
 -- use "lewis6991/gitsigns.nvim"
