@@ -34,7 +34,7 @@ nvim_tree.setup {
   hijack_cursor = false,
   update_cwd = true,
   respect_buf_cwd = true;
-  update_to_buf_dir = {
+  hijack_directories = {
     enable = true,
     auto_open = true,
   },
@@ -62,7 +62,6 @@ nvim_tree.setup {
     height = 30,
     hide_root_folder = false,
     side = "left",
-    auto_resize = true,
     mappings = {
       custom_only = false,
       list = {
@@ -79,10 +78,11 @@ nvim_tree.setup {
   actions = {
     open_file = {
       quit_on_open = true,
+      resize_window = true,
       window_picker = {
         enable = true,
       }
-    }
+    },
   },
   renderer = {
     highlight_git = true,

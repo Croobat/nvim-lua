@@ -89,8 +89,8 @@ local mappings = {
   },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
   ["w"] = { "<cmd>w!<CR>", "Save" },                    --Save
-  ["q"] = { "<cmd>q!<CR>", "Quit" },                    --Quit
-  ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },      --Close buffer
+  -- ["q"] = { "<cmd>q!<CR>", "Quit" },                    --Quit
+  ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },      --Close buffer
   ["h"] = { "<cmd>lua vim.opt.hlsearch = true<CR>", "Enable Highlight" },      --Enable hl search
   ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
   ["f"] = {                                             --Find files

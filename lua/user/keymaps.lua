@@ -36,6 +36,8 @@
   --faster scrolling
   keymap("n", "<C-j>", "5j", opts)
   keymap("n", "<C-k>", "5k", opts)
+  keymap("n", "<C-h>", "3h", opts)
+  keymap("n", "<C-l>", "3l", opts)
 
   -- Better window navigation
   keymap("n", "<A-h>", "<C-w>h", opts)
@@ -142,6 +144,8 @@
   --faster scrolling
   keymap("v", "<C-j>", "5j", opts)
   keymap("v", "<C-k>", "5k", opts)
+  keymap("v", "<C-h>", "3h", opts)
+  keymap("v", "<C-l>", "3l", opts)
 
 --}}}
 
@@ -156,6 +160,8 @@
   --faster scrolling
   keymap("x", "<C-j>", "5j", opts)
   keymap("x", "<C-k>", "5k", opts)
+  keymap("x", "<C-h>", "3h", opts)
+  keymap("x", "<C-l>", "3l", opts)
 
 --}}}
 

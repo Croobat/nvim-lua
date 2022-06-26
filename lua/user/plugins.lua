@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
 --}}}
 
---   PLUGINS
+--   PLUGINS{{{
 -- ## Mandatory ## {{{
   use "wbthomason/packer.nvim"   -- Have packer manage itself
   use "nvim-lua/popup.nvim"      -- An implementation of the Popup API from vim in Neovim
@@ -147,7 +147,7 @@ return packer.startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"         --indent lines
   use "folke/which-key.nvim"                        --key reminder
   use "folke/zen-mode.nvim"                         -- zen mode
---}}}
+--}}}}}}
 
 --## EOF ## {{{
 -- Automatically set up your configuration after cloning packer.nvim
