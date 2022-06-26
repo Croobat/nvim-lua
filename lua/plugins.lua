@@ -42,7 +42,7 @@ packer.init {
 return packer.startup(function(use)
   --}}}
 
-  --   PLUGINS{{{
+  --- PLUGINS
   -- ## Mandatory ## {{{
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -59,8 +59,8 @@ return packer.startup(function(use)
 
   --## Completion ## {{{
   -- auto parens
-  use { "windwp/nvim-autopairs", config = function() require("nvim-autopairs").setup {} end }
-  use "windwp/nvim-ts-autotag" --autoclose tags
+  use { "windwp/nvim-autopairs", config = "require 'plug-config.autopairs'", after = "nvim-cmp" }
+  use { "windwp/nvim-ts-autotag", event = "InsertEnter" } --autoclose tags
   -- auto case
   use { "johmsalas/text-case.nvim", config = function() require('textcase').setup {} end }
 
@@ -79,38 +79,46 @@ return packer.startup(function(use)
   --}}}
 
   --## Navigation ##{{{
-  use "kyazdani42/nvim-tree.lua"  -- tree fm
-  use "ahmedkhalf/project.nvim" -- Project manager
-  use "nvim-telescope/telescope.nvim"  -- Fuzzy finder
-  use "akinsho/bufferline.nvim" -- buffer tabs
+  use { "kyazdani42/nvim-tree.lua", requires = { 'kyazdani42/nvim-web-devicons' }, cmd = "NvimTreeToggle",
+    config = "require 'plug-config.nvim-tree'" } -- file manager
+
+  use { "nvim-telescope/telescope.nvim", requires = { { 'nvim-lua/plenary.nvim' } }, cmd = "Telescope",
+    config = "require 'plug-config.telescope'" } -- fuzzy finder
+
+  use { "akinsho/bufferline.nvim", requires = { 'kyazdani42/nvim-web-devicons' }, event = "BufWinEnter",
+    config = "require 'plug-config.bufferline'" } -- buffer tabs
+
   use { "moll/vim-bbye", cmd = "Bdelete" } -- close buffers
+  use "ahmedkhalf/project.nvim" -- Project manager
   --}}}
 
   --## Compile ## {{{
   -- Markdown preview
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
-    cmd = { 'MarkdownPreview' }})
+    cmd = { 'MarkdownPreview' } })
   -- }}}
 
   --## Visuals ## {{{
   -- Colorschemes
-  use "Mofiqul/dracula.nvim"
+  use { "Mofiqul/dracula.nvim", config = "require 'general.colorscheme'" }
   -- use "lunarvim/colorschemes" use "lunarvim/darkplus.nvim" use "navarasu/onedark.nvim"
   -- use "ellisonleao/gruvbox.nvim" use "shaunsingh/nord.nvim"
 
   -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", }
-    use "p00f/nvim-ts-rainbow" --rainbow parens
-    use "JoosepAlviste/nvim-ts-context-commentstring" --contextual comments
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufWinEnter",
+    config = "require 'plug-config.treesitter'" }
+  use { "p00f/nvim-ts-rainbow", event = "BufWinEnter", after = "nvim-treesitter" } --rainbow parens
+  use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" } --contextual comments
 
   use "goolord/alpha-nvim" -- Start page
-    use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
   use "norcalli/nvim-colorizer.lua" --hex visual colors
   use "lewis6991/gitsigns.nvim" --git symbols
-  use 'kyazdani42/nvim-web-devicons' --extra icons
-  use "nvim-lualine/lualine.nvim" --custom info line
+  use { "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }, event = "BufWinEnter",
+    config = "require 'plug-config.lualine'" }
+  -- use 'kyazdani42/nvim-web-devicons' --extra icons
   use "lukas-reineke/indent-blankline.nvim" --indent lines
   --}}}
 
@@ -127,18 +135,16 @@ return packer.startup(function(use)
   use "kana/vim-textobj-line" -- significant line
   use "wellle/targets.vim"
 
---}}}
+  --}}}
 
   --## Miscellaneous ##{{{
-  use { "akinsho/toggleterm.nvim", 
-    cmd = {'ToggleTerm'},
-    requires = {'user.toggleterm'}  
+  use { "akinsho/toggleterm.nvim",
+    cmd = { 'ToggleTerm' },
   } -- Toggle terminal
-  use { "sQVe/sort.nvim", cmd = {'Sort'} } -- Sort selection
-  use { "folke/zen-mode.nvim", cmd = {'ZenMode'} }-- zen mode
-  use "folke/which-key.nvim" --key reminder
+  use { "sQVe/sort.nvim", cmd = { 'Sort' } } -- Sort selection
+  use { "folke/zen-mode.nvim", cmd = { 'ZenMode' } } -- zen mode
+  use { "folke/which-key.nvim", event = "BufWinEnter", config = "require 'keys.whichkey'" } --key reminder
   --}}}
---}}}
 
   --## EOF ## {{{
   -- Automatically set up your configuration after cloning packer.nvim
