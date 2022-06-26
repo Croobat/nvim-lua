@@ -46,34 +46,38 @@ return packer.startup(function(use)
   -- ## Mandatory ## {{{
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "lewis6991/impatient.nvim" -- Faster startup
+  use { "lewis6991/impatient.nvim" } -- Faster startup
   -- }}}
 
   --## LSP ##{{{
-  use "neovim/nvim-lspconfig" -- enable Language Server Protocol
+  use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'", event = 'BufRead' } -- enable Language Server Protocol
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+
+  use { "hrsh7th/cmp-nvim-lsp" } -- lsp completions
+
+
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   --}}}
 
   --## Completion ## {{{
   -- auto parens
-  use { "windwp/nvim-autopairs", config = "require 'plug-config.autopairs'", after = "nvim-cmp" }
+  use { "windwp/nvim-autopairs", config = "require 'plug-config.autopairs'" }
   use { "windwp/nvim-ts-autotag", event = "InsertEnter" } --autoclose tags
-  -- auto case
   use { "johmsalas/text-case.nvim", config = function() require('textcase').setup {} end }
 
-  -- nvim-cmp
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "David-Kunz/cmp-npm" -- npm completions
-  use "hrsh7th/cmp-nvim-lsp" -- lsp completions
-  use "hrsh7th/cmp-nvim-lua" -- lua completions
+  -- cmp
+  use { "hrsh7th/nvim-cmp", config = "require 'plug-config.cmp'" } -- The completion plugin
+    use { "hrsh7th/cmp-buffer" } -- buffer completions
+    use { "hrsh7th/cmp-path" } -- path completions
+    use { "hrsh7th/cmp-cmdline" } -- cmdline completions
+    use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
+    use { "hrsh7th/cmp-nvim-lua" } -- lua completions
+    use { "David-Kunz/cmp-npm"  } -- npm completions
+
   -- snippets
+  use { "hrsh7th/cmp-vsnip" } -- VScode snippets completions
+  use { "hrsh7th/vim-vsnip" } -- VIM VScode snippet completions
   use "L3MON4D3/LuaSnip" -- snippet engine
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   --}}}
@@ -89,7 +93,7 @@ return packer.startup(function(use)
     config = "require 'plug-config.bufferline'" } -- buffer tabs
 
   use { "moll/vim-bbye", cmd = "Bdelete" } -- close buffers
-  use "ahmedkhalf/project.nvim" -- Project manager
+  use { "ahmedkhalf/project.nvim", config = "require 'plug-config.project'" } -- Project manager
   --}}}
 
   --## Compile ## {{{
@@ -108,18 +112,18 @@ return packer.startup(function(use)
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufWinEnter",
     config = "require 'plug-config.treesitter'" }
-  use { "p00f/nvim-ts-rainbow", event = "BufWinEnter", after = "nvim-treesitter" } --rainbow parens
-  use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" } --contextual comments
+  use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" } --rainbow parens
+  use { "JoosepAlviste/nvim-ts-context-commentstring", config = "require 'plug-config.comment'", after = "nvim-treesitter" } --contextual comments
 
-  use "goolord/alpha-nvim" -- Start page
+  use { "goolord/alpha-nvim", config = "require 'plug-config.alpha'" } -- Start page
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
-  use "norcalli/nvim-colorizer.lua" --hex visual colors
-  use "lewis6991/gitsigns.nvim" --git symbols
+  use { "norcalli/nvim-colorizer.lua", config = "require'colorizer'.setup()" } --hex visual colors
+  use { "lewis6991/gitsigns.nvim", config = "require 'plug-config.gitsigns'" } --git symbols
   use { "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }, event = "BufWinEnter",
     config = "require 'plug-config.lualine'" }
   -- use 'kyazdani42/nvim-web-devicons' --extra icons
-  use "lukas-reineke/indent-blankline.nvim" --indent lines
+  use { "lukas-reineke/indent-blankline.nvim", config = "require 'plug-config.indentline'", event = "BufRead"} --indent lines
   --}}}
 
   -- ## Vanilla ##{{{
@@ -138,12 +142,10 @@ return packer.startup(function(use)
   --}}}
 
   --## Miscellaneous ##{{{
-  use { "akinsho/toggleterm.nvim",
-    cmd = { 'ToggleTerm' },
-  } -- Toggle terminal
+  use { "akinsho/toggleterm.nvim", config = "require 'plug-config.toggleterm'", cmd = "ToggleTerm" } -- Toggle terminal
   use { "sQVe/sort.nvim", cmd = { 'Sort' } } -- Sort selection
   use { "folke/zen-mode.nvim", cmd = { 'ZenMode' } } -- zen mode
-  use { "folke/which-key.nvim", event = "BufWinEnter", config = "require 'keys.whichkey'" } --key reminder
+  use { "folke/which-key.nvim", config = "require 'keys.whichkey'" } --key reminder
   --}}}
 
   --## EOF ## {{{

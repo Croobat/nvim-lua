@@ -83,21 +83,15 @@ local opts = {
 local mappings = {
   ["/"] = { "<cmd>Commentary<cr>", "Comment" },                --Start page
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },                --Start page
-  ["b"] = {                                             --Telescope buffers
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
+  ["b"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
+  ["c"] = { "<cmd>ColorizerToggle<cr>", "Hex colors" },    --Explorer
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
   ["w"] = { "<cmd>w!<CR>", "Save" },                    --Save
-  -- ["q"] = { "<cmd>q!<CR>", "Quit" },                    --Quit
   ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },      --Close buffer
   ["h"] = { "<cmd>lua vim.opt.hlsearch = true<CR>", "Enable Highlight" },      --Enable hl search
   ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
-  ["f"] = {                                             --Find files
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
-  ["T"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },  --Find text
+  ["f"] = { "<cmd>Telescope find_files<cr>", "Find Files" },  --Find files
+  ["T"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find text" },  --Find text
   ["F"] = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format file" },  --Format
   ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["z"] = { "<cmd>:ZenMode<cr>", "Zen mode" },
