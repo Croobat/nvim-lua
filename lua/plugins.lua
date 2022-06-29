@@ -49,7 +49,7 @@ return packer.startup(function(use)
   use { "lewis6991/impatient.nvim" } -- Faster startup
   -- }}}
 
-  --## LSP ##{{{
+  --## LSP (10ms) ##{{{
   use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'", event = 'BufRead' } -- enable Language Server Protocol
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
@@ -60,7 +60,7 @@ return packer.startup(function(use)
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   --}}}
 
-  --## Completion ## {{{
+  --## Completion (20ms) ## {{{
   -- auto parens
   use { "windwp/nvim-autopairs", config = "require 'plug-config.autopairs'" }
   use { "windwp/nvim-ts-autotag", event = "InsertEnter" } --autoclose tags
@@ -82,7 +82,7 @@ return packer.startup(function(use)
   use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   --}}}
 
-  --## Navigation ##{{{
+  --## Navigation (10ms) ##{{{
   use { "kyazdani42/nvim-tree.lua", requires = { 'kyazdani42/nvim-web-devicons' }, cmd = "NvimTreeToggle",
     config = "require 'plug-config.nvim-tree'" } -- file manager
 
@@ -96,18 +96,11 @@ return packer.startup(function(use)
   use { "ahmedkhalf/project.nvim", config = "require 'plug-config.project'" } -- Project manager
   --}}}
 
-  --## Compile ## {{{
-  -- Markdown preview
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
-    cmd = { 'MarkdownPreview' } })
-  -- }}}
-
-  --## Visuals ## {{{
+  --## Visuals (40ms) ## {{{
   -- Colorschemes
   use { "Mofiqul/dracula.nvim", config = "require 'general.colorscheme'" }
-  -- use "lunarvim/colorschemes" use "lunarvim/darkplus.nvim" use "navarasu/onedark.nvim"
-  -- use "ellisonleao/gruvbox.nvim" use "shaunsingh/nord.nvim"
+  ---- use "lunarvim/colorschemes" use "lunarvim/darkplus.nvim" use "navarasu/onedark.nvim"
+  ---- use "ellisonleao/gruvbox.nvim" use "shaunsingh/nord.nvim"
 
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufWinEnter",
@@ -122,11 +115,11 @@ return packer.startup(function(use)
   use { "lewis6991/gitsigns.nvim", config = "require 'plug-config.gitsigns'" } --git symbols
   use { "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }, event = "BufWinEnter",
     config = "require 'plug-config.lualine'" }
-  -- use 'kyazdani42/nvim-web-devicons' --extra icons
+   use 'kyazdani42/nvim-web-devicons' --extra icons
   use { "lukas-reineke/indent-blankline.nvim", config = "require 'plug-config.indentline'", event = "BufRead"} --indent lines
   --}}}
 
-  -- ## Vanilla ##{{{
+  -- ## Vanilla (<10ms) ##{{{ 
   -- Motions
   use "tpope/vim-surround" -- Surround
   use "tpope/vim-commentary" -- Comment
@@ -139,10 +132,17 @@ return packer.startup(function(use)
   use "kana/vim-textobj-line" -- significant line
   use "wellle/targets.vim"
 
-  --}}}
+  ----}}}
 
-  --## Miscellaneous ##{{{
-  use { "akinsho/toggleterm.nvim", config = "require 'plug-config.toggleterm'", cmd = "ToggleTerm" } -- Toggle terminal
+  --## Compile ## {{{
+  ---- Markdown preview
+  --use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+  --  setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
+  --  cmd = { 'MarkdownPreview' } })
+  -- }}}
+
+  --## Miscellaneous (10ms) ##{{{
+  use { "akinsho/toggleterm.nvim", config = "require 'plug-config.toggleterm'" } -- Toggle terminal
   use { "sQVe/sort.nvim", cmd = { 'Sort' } } -- Sort selection
   use { "folke/zen-mode.nvim", cmd = { 'ZenMode' } } -- zen mode
   use { "folke/which-key.nvim", config = "require 'keys.whichkey'" } --key reminder
