@@ -68,12 +68,12 @@ return packer.startup(function(use)
 
   -- cmp
   use { "hrsh7th/nvim-cmp", config = "require 'plug-config.cmp'" } -- The completion plugin
-    use { "hrsh7th/cmp-buffer" } -- buffer completions
-    use { "hrsh7th/cmp-path" } -- path completions
-    use { "hrsh7th/cmp-cmdline" } -- cmdline completions
-    use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-    use { "hrsh7th/cmp-nvim-lua" } -- lua completions
-    use { "David-Kunz/cmp-npm"  } -- npm completions
+  use { "hrsh7th/cmp-buffer" } -- buffer completions
+  use { "hrsh7th/cmp-path" } -- path completions
+  use { "hrsh7th/cmp-cmdline" } -- cmdline completions
+  use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
+  use { "hrsh7th/cmp-nvim-lua" } -- lua completions
+  use { "David-Kunz/cmp-npm" } -- npm completions
 
   -- snippets
   use { "hrsh7th/cmp-vsnip" } -- VScode snippets completions
@@ -83,7 +83,7 @@ return packer.startup(function(use)
   --}}}
 
   --## Navigation (10ms) ##{{{
-  use { "kyazdani42/nvim-tree.lua", requires = { 'kyazdani42/nvim-web-devicons' }, cmd = "NvimTreeToggle",
+  use { "kyazdani42/nvim-tree.lua", requires = { 'kyazdani42/nvim-web-devicons' },
     config = "require 'plug-config.nvim-tree'" } -- file manager
 
   use { "nvim-telescope/telescope.nvim", requires = { { 'nvim-lua/plenary.nvim' } }, cmd = "Telescope",
@@ -106,7 +106,8 @@ return packer.startup(function(use)
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufWinEnter",
     config = "require 'plug-config.treesitter'" }
   use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" } --rainbow parens
-  use { "JoosepAlviste/nvim-ts-context-commentstring", config = "require 'plug-config.comment'", after = "nvim-treesitter" } --contextual comments
+  use { "JoosepAlviste/nvim-ts-context-commentstring", config = "require 'plug-config.comment'",
+    after = "nvim-treesitter" } --contextual comments
 
   use { "goolord/alpha-nvim", config = "require 'plug-config.alpha'" } -- Start page
   use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
@@ -115,11 +116,11 @@ return packer.startup(function(use)
   use { "lewis6991/gitsigns.nvim", config = "require 'plug-config.gitsigns'" } --git symbols
   use { "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }, event = "BufWinEnter",
     config = "require 'plug-config.lualine'" }
-   use 'kyazdani42/nvim-web-devicons' --extra icons
-  use { "lukas-reineke/indent-blankline.nvim", config = "require 'plug-config.indentline'", event = "BufRead"} --indent lines
+  use 'kyazdani42/nvim-web-devicons' --extra icons
+  use { "lukas-reineke/indent-blankline.nvim", config = "require 'plug-config.indentline'", event = "BufRead" } --indent lines
   --}}}
 
-  -- ## Vanilla (<10ms) ##{{{ 
+  -- ## Vanilla (<10ms) ##{{{
   -- Motions
   use "tpope/vim-surround" -- Surround
   use "tpope/vim-commentary" -- Comment

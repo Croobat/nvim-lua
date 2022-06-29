@@ -70,6 +70,7 @@ nvim_tree.setup {
         { key = "v", cb = tree_cb "vsplit" },
         { key = "I", cb = tree_cb "full_rename" },
         { key = "A", cb = tree_cb "rename" },
+        { key = ",", cb = tree_cb "edit" },
       },
     },
     number = false,
