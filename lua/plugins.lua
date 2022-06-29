@@ -50,7 +50,7 @@ return packer.startup(function(use)
   -- }}}
 
   --## LSP (10ms) ##{{{
-  use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'", event = 'BufRead' } -- enable Language Server Protocol
+  use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'" } -- enable Language Server Protocol
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 
