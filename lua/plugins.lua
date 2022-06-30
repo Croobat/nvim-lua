@@ -49,44 +49,48 @@ return packer.startup(function(use)
   use { "lewis6991/impatient.nvim" } -- Faster startup
   -- }}}
 
-  --## LSP (10ms) ##{{{
-  use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'" } -- enable Language Server Protocol
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  --## Completion (30ms) ##{{{
 
-  use { "hrsh7th/cmp-nvim-lsp" } -- lsp completions
+  -- Main LSP plugin
+  use { "hrsh7th/cmp-nvim-lsp" }
+  -- Language Server Installer
+  use "williamboman/nvim-lsp-installer"
+  -- Set of cool LSP settings
+  use "tamago324/nlsp-settings.nvim"
+  -- LSP handle config
+  use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'" }
+  
+
+  -- Main Null-ls plugin
+  use "jose-elias-alvarez/null-ls.nvim" -- External formatters and linters
 
 
-  -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
-  --}}}
+  -- Main CMP plugin
+  use { "hrsh7th/nvim-cmp", config = "require 'plug-config.cmp'" }
+  -- CMP sources
+  use { "hrsh7th/cmp-buffer" } -- buffer words
+  use { "hrsh7th/cmp-path" } -- path
+  use { "hrsh7th/cmp-cmdline" } -- cmdline
+  use { "hrsh7th/cmp-nvim-lua" } -- lua API
+  use { "David-Kunz/cmp-npm" } -- npm
+  use { "hrsh7th/cmp-calc" } --calculator
 
-  --## Completion (20ms) ## {{{
-  -- auto parens
+  -- Snippets
+  use { "L3MON4D3/LuaSnip",  } -- Snippet engine
+  use { "saadparwaiz1/cmp_luasnip" } -- cmp integration
+  use { "rafamadriz/friendly-snippets" } -- Friendly snippets
+
+  -- Auto inserters
   use { "windwp/nvim-autopairs", config = "require 'plug-config.autopairs'" }
   use { "windwp/nvim-ts-autotag", event = "InsertEnter" } --autoclose tags
   use { "johmsalas/text-case.nvim", config = function() require('textcase').setup {} end }
-
-  -- cmp
-  use { "hrsh7th/nvim-cmp", config = "require 'plug-config.cmp'" } -- The completion plugin
-  use { "hrsh7th/cmp-buffer" } -- buffer completions
-  use { "hrsh7th/cmp-path" } -- path completions
-  use { "hrsh7th/cmp-cmdline" } -- cmdline completions
-  use { "saadparwaiz1/cmp_luasnip" } -- snippet completions
-  use { "hrsh7th/cmp-nvim-lua" } -- lua completions
-  use { "David-Kunz/cmp-npm" } -- npm completions
-
-  -- snippets
-  use { "hrsh7th/cmp-vsnip" } -- VScode snippets completions
-  use { "hrsh7th/vim-vsnip" } -- VIM VScode snippet completions
-  use "L3MON4D3/LuaSnip" -- snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
   --}}}
 
   --## Navigation (10ms) ##{{{
   use { "kyazdani42/nvim-tree.lua", requires = { 'kyazdani42/nvim-web-devicons' },
     config = "require 'plug-config.nvim-tree'" } -- file manager
 
-  use { "nvim-telescope/telescope.nvim", requires = { { 'nvim-lua/plenary.nvim' } }, cmd = "Telescope",
+  use { "nvim-telescope/telescope.nvim", requires = { { 'nvim-lua/plenary.nvim' } },
     config = "require 'plug-config.telescope'" } -- fuzzy finder
 
   use { "akinsho/bufferline.nvim", requires = { 'kyazdani42/nvim-web-devicons' }, event = "BufWinEnter",
