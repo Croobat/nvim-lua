@@ -98,7 +98,7 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets" }
 
   -- Main Null-ls plugin
-  use "jose-elias-alvarez/null-ls.nvim" -- External formatters and linters
+  -- use "jose-elias-alvarez/null-ls.nvim" -- External formatters and linters
 
 
   -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
