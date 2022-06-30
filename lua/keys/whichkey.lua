@@ -82,71 +82,61 @@ local opts = {
 }
 
 local mappings = {
-  ["/"] = { "<cmd>Commentary<cr>", "Comment" },                --Start page
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },                --Start page
-  ["B"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
-  ["hc"] = { "<cmd>ColorizerToggle<cr>", "Hex colors" },    --Explorer
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
-  ["w"] = { "<cmd>w!<CR>", "Save" },                    --Save
-  ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },      --Close buffer
-  ["h"] = { "<cmd>lua vim.opt.hlsearch = true<CR>", "Enable Highlight" },      --Enable hl search
-  ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
-  ["f"] = { "<cmd>Telescope find_files<cr>", "Find Files" },  --Find files
-  ["T"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find text" },  --Find text
-  ["F"] = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format file" },  --Format
-  ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  ["z"] = { "<cmd>:ZenMode<cr>", "Zen mode" },
-  ["<leader>"] = { "i <esc>l", "Insert space" },
-  [";"] = { "A;<esc>", "Insert semicolon" },
   [","] = { "A,<esc>", "Insert comma" },
   ["."] = { "A.<esc>", "Insert dot" },
+  ["/"] = { "<cmd>Commentary<cr>", "Comment" },                --Start page
+  [";"] = { "A;<esc>", "Insert semicolon" },
+  ["<leader>"] = { "i <esc>l", "Insert space" },
+  ["B"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
+  ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
+  ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find text" },  --Find text
+  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },                --Start page
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
+  ["F"] = { "<cmd>Telescope find_files<cr>", "Find Files" },  --Find files
+  ["h"] = { "<cmd>lua vim.opt.hlsearch = true<CR>", "Enable Highlight" },      --Enable hl search
+  ["hc"] = { "<cmd>ColorizerToggle<cr>", "Hex colors" },    --Explorer
+  ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },      --Close buffer
+  ["w"] = { "<cmd>w!<CR>", "Save" },                    --Save
+  ["z"] = { "<cmd>:ZenMode<cr>", "Zen mode" },
 
   P = {
     name = "Packer",
+    S = { "<cmd>PackerStatus<cr>", "Status" },
     c = { "<cmd>PackerCompile<cr>", "Compile" },
     i = { "<cmd>PackerInstall<cr>", "Install" },
     s = { "<cmd>PackerSync<cr>", "Sync" },
-    S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
   },
 
   c = {
     name = "Comment Box",
-    g = { "<cmd>lua require('comment-box').catalog()<cr>", "Box Catalog" },
-
-    c = { "<cmd>lua require('comment-box').albox()<cr>", "Classic" },
-    ab = { "<cmd>lua require('comment-box').albox(10)<cr>", "Classic ASCII" },
-    h = { "<cmd>lua require('comment-box').albox(3)<cr>", "Heavy" },
-
-    t = { "<cmd>lua require('comment-box').accbox(7)<cr>", "Title" },
-    T = { "<cmd>lua require('comment-box').accbox(3)<cr>", "Title Heavy" },
-
-    l = { "<cmd>lua require('comment-box').cline(1)<cr>", "Simple line" },
     L = { "<cmd>lua require('comment-box').cline(2)<cr>", "heavy line" },
+    T = { "<cmd>lua require('comment-box').accbox(3)<cr>", "Title Heavy" },
+    ab = { "<cmd>lua require('comment-box').albox(10)<cr>", "Classic ASCII" },
     al = { "<cmd>lua require('comment-box').cline(10)<cr>", "ASCII line" },
+    c = { "<cmd>lua require('comment-box').albox()<cr>", "Classic" },
+    g = { "<cmd>lua require('comment-box').catalog()<cr>", "Box Catalog" },
+    h = { "<cmd>lua require('comment-box').albox(3)<cr>", "Heavy" },
+    l = { "<cmd>lua require('comment-box').cline(1)<cr>", "Simple line" },
+    t = { "<cmd>lua require('comment-box').accbox(7)<cr>", "Title" },
   },
 
   g = {
     name = "Git",
+    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
+    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff", },
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      "Undo Stage Hunk",
-    },
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    d = {
-      "<cmd>Gitsigns diffthis HEAD<cr>",
-      "Diff",
-    },
+    u = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", "Undo Stage Hunk", },
   },
 
   l = {
@@ -171,26 +161,26 @@ local mappings = {
   },
   s = {
     name = "Search",
+    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    R = { "<cmd>Telescope registers<cr>", "Registers" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
     h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-    R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    C = { "<cmd>Telescope commands<cr>", "Commands" },
+    r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
   },
 
   t = {
     name = "Terminal",
-    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
     T = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Horizontal" },
-    v = { "<cmd>ToggleTerm size=60 direction=vertical<cr>", "Vertical" },
+    n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
+    p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
     t = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Vertical" },
+    u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
+    v = { "<cmd>ToggleTerm size=60 direction=vertical<cr>", "Vertical" },
   },
 }
 
