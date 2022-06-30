@@ -61,9 +61,6 @@ return packer.startup(function(use)
   use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'" }
   
 
-  -- CoC... -.- (solo para css completion)
-  use {"neoclide/coc.nvim", branch = "release", ft = { "css", "scss" }}
-
   -- Main Null-ls plugin
   use "jose-elias-alvarez/null-ls.nvim" -- External formatters and linters
 
