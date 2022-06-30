@@ -9,8 +9,11 @@ if not luasnip_status_ok then
   return
 end--}}}
 
--- Lazy load friendly snippets
+-- Lazy load VSlike (friendly snippets)
 require("luasnip.loaders.from_vscode").lazy_load()
+
+-- Lazy load .snipmate snippets
+require("luasnip.loaders.from_snipmate").lazy_load()
 
 -- Better supertab
 local check_backspace = function()

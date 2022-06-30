@@ -42,31 +42,43 @@ packer.init {
 return packer.startup(function(use)
   --}}}
 
-  --- PLUGINS
-  -- ## Mandatory ## {{{
+  --                                  ╔═════════╗
+  --                                  ║ PLUGINS ║
+  --                                  ╚═════════╝
+  -- ┏━━━━━━━━━━━━━━━━━━━━┓
+  -- ┃    ## Mandatory ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━━━━┛
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use { "lewis6991/impatient.nvim" } -- Faster startup
-  -- }}}
+  --
 
-  --## Completion (30ms) ##{{{
 
-  -- Main LSP plugin
+  -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  -- ┃   ## Completion (30ms) ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+  -- ╭────────╮
+  -- │    LSP │
+  -- ╰────────╯
+  -- Main plugin
   use { "hrsh7th/cmp-nvim-lsp" }
+
   -- Language Server Installer
   use "williamboman/nvim-lsp-installer"
+
   -- Set of cool LSP settings
   use "tamago324/nlsp-settings.nvim"
+
   -- LSP handle config
-  use { "neovim/nvim-lspconfig", config = "require 'plug-config.lsp'" }
-  
+  use { "neovim/nvim-lspconfig", config = "require 'config.lsp'" }
 
-  -- Main Null-ls plugin
-  use "jose-elias-alvarez/null-ls.nvim" -- External formatters and linters
+  -- ╭────────╮
+  -- │    CMP │
+  -- ╰────────╯
+  -- Main plugin
+  use { "hrsh7th/nvim-cmp", config = "require 'config.cmp'" }
 
-
-  -- Main CMP plugin
-  use { "hrsh7th/nvim-cmp", config = "require 'plug-config.cmp'" }
   -- CMP sources
   use { "hrsh7th/cmp-buffer" } -- buffer words
   use { "hrsh7th/cmp-path" } -- path
@@ -75,60 +87,104 @@ return packer.startup(function(use)
   use { "David-Kunz/cmp-npm" } -- npm
   use { "hrsh7th/cmp-calc" } --calculator
 
-  -- Snippets
-  use { "L3MON4D3/LuaSnip",  } -- Snippet engine
+  -- ╭─────────────╮
+  -- │    Snippets │
+  -- ╰─────────────╯
+  -- Snippets engine
+  use { "L3MON4D3/LuaSnip", }
+  -- Cmp integration
   use { "saadparwaiz1/cmp_luasnip" } -- cmp integration
-  use { "rafamadriz/friendly-snippets" } -- Friendly snippets
+  -- A bunch of snippets
+  use { "rafamadriz/friendly-snippets" }
 
-  -- Auto inserters
-  use { "windwp/nvim-autopairs", config = "require 'plug-config.autopairs'" }
-  use { "windwp/nvim-ts-autotag", event = "InsertEnter" } --autoclose tags
-  use { "johmsalas/text-case.nvim", config = function() require('textcase').setup {} end }
-  --}}}
+  -- Main Null-ls plugin
+  use "jose-elias-alvarez/null-ls.nvim" -- External formatters and linters
 
-  --## Navigation (10ms) ##{{{
+
+  -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  -- ┃   ## Navigation (10ms) ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+  -- File manager
   use { "kyazdani42/nvim-tree.lua", requires = { 'kyazdani42/nvim-web-devicons' },
-    config = "require 'plug-config.nvim-tree'" } -- file manager
+    config = "require 'config.nvim-tree'" }
 
+  -- Fuzzy finder
   use { "nvim-telescope/telescope.nvim", requires = { { 'nvim-lua/plenary.nvim' } },
-    config = "require 'plug-config.telescope'" } -- fuzzy finder
+    config = "require 'config.telescope'" }
 
+  -- Visual buffer tabs
   use { "akinsho/bufferline.nvim", requires = { 'kyazdani42/nvim-web-devicons' }, event = "BufWinEnter",
-    config = "require 'plug-config.bufferline'" } -- buffer tabs
+    config = "require 'config.bufferline'" }
 
-  use { "moll/vim-bbye", cmd = "Bdelete" } -- close buffers
-  use { "ahmedkhalf/project.nvim", config = "require 'plug-config.project'" } -- Project manager
-  --}}}
+  -- Close buffers
+  use { "moll/vim-bbye", cmd = "Bdelete" }
+  
+  -- Project manager
+  use { "ahmedkhalf/project.nvim", config = "require 'config.project'" }
 
-  --## Visuals (40ms) ## {{{
-  -- Colorschemes
+  -- Better t and f
+  -- use { "unblevable/quick-scope" }
+
+
+  -- ┏━━━━━━━━━━━━━━━━━━━━━━━━┓
+  -- ┃   ## Visuals (40ms) ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━━━━━━━━┛
+-- ╭────────────────╮
+-- │    Colorscheme │
+-- ╰────────────────╯
   use { "Mofiqul/dracula.nvim", config = "require 'general.colorscheme'" }
   ---- use "lunarvim/colorschemes" use "lunarvim/darkplus.nvim" use "navarasu/onedark.nvim"
   ---- use "ellisonleao/gruvbox.nvim" use "shaunsingh/nord.nvim"
 
-  -- Treesitter
+-- ╭───────────────╮
+-- │    Treesitter │
+-- ╰───────────────╯
+  -- Main plugin
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufWinEnter",
-    config = "require 'plug-config.treesitter'" }
-  use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" } --rainbow parens
-  use { "JoosepAlviste/nvim-ts-context-commentstring", config = "require 'plug-config.comment'",
-    after = "nvim-treesitter" } --contextual comments
+    config = "require 'config.treesitter'" }
+  
+  -- Rainbow parens
+  use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" }
 
-  use { "goolord/alpha-nvim", config = "require 'plug-config.alpha'" } -- Start page
-  use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+  -- Contextual comments
+  use { "JoosepAlviste/nvim-ts-context-commentstring", config = "require 'config.comment'",
+    after = "nvim-treesitter" }
 
-  use { "norcalli/nvim-colorizer.lua", config = "require'colorizer'.setup()" } --hex visual colors
-  use { "lewis6991/gitsigns.nvim", config = "require 'plug-config.gitsigns'" } --git symbols
+-- ╭─────────────────╮
+-- │   Miscellaneous │
+-- ╰─────────────────╯
+  -- Info line
   use { "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }, event = "BufWinEnter",
-    config = "require 'plug-config.lualine'" }
-  use 'kyazdani42/nvim-web-devicons' --extra icons
-  use { "lukas-reineke/indent-blankline.nvim", config = "require 'plug-config.indentline'", event = "BufRead" } --indent lines
-  --}}}
+    config = "require 'config.lualine'" }
 
-  -- ## Vanilla (<10ms) ##{{{
+  -- Start page
+  use { "goolord/alpha-nvim", config = "require 'config.alpha'" }
+
+  -- Fix lsp doc highlight
+  use "antoinemadec/FixCursorHold.nvim"
+
+  -- Visual hex colors
+  use { "norcalli/nvim-colorizer.lua", config = "require'colorizer'.setup()" }
+
+  -- Git symbols
+  use { "lewis6991/gitsigns.nvim", config = "require 'config.gitsigns'" }
+  
+  -- Indented visual lines
+  use { "lukas-reineke/indent-blankline.nvim", config = "require 'config.indentline'", event = "BufRead" } --indent lines
+
+  -- Extra icons
+  use 'kyazdani42/nvim-web-devicons' --extra icons
+
+
+  -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  -- ┃    ## Vanilla (<10ms) ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━┛
   -- Motions
   use "tpope/vim-surround" -- Surround
   use "tpope/vim-commentary" -- Comment
   use "tpope/vim-repeat" -- Repeat
+  --(Replace without overlap) gr motion
+  use "vim-scripts/ReplaceWithRegister"
 
   -- Targets
   use "kana/vim-textobj-user" -- custom text objects
@@ -137,21 +193,34 @@ return packer.startup(function(use)
   use "kana/vim-textobj-line" -- significant line
   use "wellle/targets.vim"
 
-  ----}}}
+  -- Inserters
+  use { "windwp/nvim-autopairs", config = "require 'config.autopairs'" }
+  use { "windwp/nvim-ts-autotag", event = "InsertEnter" } --autoclose tags
+  use { "johmsalas/text-case.nvim", config = function() require('textcase').setup {} end }
 
-  --## Compile ## {{{
+  -- Comment boxes
+  use { "LudoPinelli/comment-box.nvim", config = "require 'config.comment-box'" }
+
+
+  -- ┏━━━━━━━━━━━━━━━━━┓
+  -- ┃   ## Compile ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━┛
   ---- Markdown preview
   --use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
   --  setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
   --  cmd = { 'MarkdownPreview' } })
-  -- }}}
 
-  --## Miscellaneous (10ms) ##{{{
-  use { "akinsho/toggleterm.nvim", config = "require 'plug-config.toggleterm'" } -- Toggle terminal
-  use { "sQVe/sort.nvim", cmd = { 'Sort' } } -- Sort selection
-  use { "folke/zen-mode.nvim", cmd = { 'ZenMode' } } -- zen mode
-  use { "folke/which-key.nvim", config = "require 'keys.whichkey'" } --key reminder
-  --}}}
+  -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  -- ┃   ## Miscellaneous (10ms) ## ┃
+  -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+  -- Toggle terminal
+  use { "akinsho/toggleterm.nvim", config = "require 'config.toggleterm'" }
+  -- Sort selection
+  use { "sQVe/sort.nvim", cmd = { 'Sort' } }
+  -- Zen mode
+  use { "folke/zen-mode.nvim", cmd = { 'ZenMode' } }
+  -- Keymap reminder
+  use { "folke/which-key.nvim", config = "require 'keys.whichkey'" }
 
   --## EOF ## {{{
   -- Automatically set up your configuration after cloning packer.nvim

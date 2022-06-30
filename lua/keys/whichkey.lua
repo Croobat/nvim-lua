@@ -1,3 +1,4 @@
+-- Setup{{{
 local status_ok, which_key = pcall(require, "which-key")
 if not status_ok then
   return
@@ -68,7 +69,7 @@ local setup = {
     i = { "j", "k" },
     v = { "j", "k" },
   },
-}
+}--}}}
 
 local opts = {
   -- Leader keys
@@ -83,8 +84,8 @@ local opts = {
 local mappings = {
   ["/"] = { "<cmd>Commentary<cr>", "Comment" },                --Start page
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },                --Start page
-  ["b"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
-  ["c"] = { "<cmd>ColorizerToggle<cr>", "Hex colors" },    --Explorer
+  ["B"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
+  ["hc"] = { "<cmd>ColorizerToggle<cr>", "Hex colors" },    --Explorer
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
   ["w"] = { "<cmd>w!<CR>", "Save" },                    --Save
   ["q"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },      --Close buffer
@@ -107,6 +108,22 @@ local mappings = {
     s = { "<cmd>PackerSync<cr>", "Sync" },
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
+  },
+
+  c = {
+    name = "Comment Box",
+    g = { "<cmd>lua require('comment-box').catalog()<cr>", "Box Catalog" },
+
+    c = { "<cmd>lua require('comment-box').albox()<cr>", "Classic" },
+    ab = { "<cmd>lua require('comment-box').albox(10)<cr>", "Classic ASCII" },
+    h = { "<cmd>lua require('comment-box').albox(3)<cr>", "Heavy" },
+
+    t = { "<cmd>lua require('comment-box').accbox(7)<cr>", "Title" },
+    T = { "<cmd>lua require('comment-box').accbox(3)<cr>", "Title Heavy" },
+
+    l = { "<cmd>lua require('comment-box').cline(1)<cr>", "Simple line" },
+    L = { "<cmd>lua require('comment-box').cline(2)<cr>", "heavy line" },
+    al = { "<cmd>lua require('comment-box').cline(10)<cr>", "ASCII line" },
   },
 
   g = {
