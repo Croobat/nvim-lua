@@ -118,12 +118,12 @@ return packer.startup(function(use)
 
   -- Close buffers
   use { "moll/vim-bbye", cmd = "Bdelete" }
-  
+
   -- Project manager
   use { "ahmedkhalf/project.nvim", config = "require 'config.project'" }
 
   -- Better t and f
-  -- use { "unblevable/quick-scope" }
+  use { "unblevable/quick-scope", config = "require 'config.quickscope'" }
 
 
   -- ┏━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -142,7 +142,7 @@ return packer.startup(function(use)
   -- Main plugin
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", event = "BufWinEnter",
     config = "require 'config.treesitter'" }
-  
+
   -- Rainbow parens
   use { "p00f/nvim-ts-rainbow", requires = "nvim-treesitter/nvim-treesitter" }
 
@@ -168,7 +168,7 @@ return packer.startup(function(use)
 
   -- Git symbols
   use { "lewis6991/gitsigns.nvim", config = "require 'config.gitsigns'" }
-  
+
   -- Indented visual lines
   use { "lukas-reineke/indent-blankline.nvim", config = "require 'config.indentline'", event = "BufRead" } --indent lines
 

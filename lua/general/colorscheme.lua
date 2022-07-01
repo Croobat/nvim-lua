@@ -9,4 +9,5 @@ if not status_ok then
   return
 end
 
+-- transparency
 vim.cmd "hi Normal guibg=NONE ctermbg=NONE"
