@@ -84,15 +84,20 @@ local opts = {
 local mappings = {
   [","] = { "A,<esc>", "Insert comma" },
   ["."] = { "A.<esc>", "Insert dot" },
-  ["/"] = { "<cmd>Commentary<cr>", "Comment" },                --Start page
   [";"] = { "A;<esc>", "Insert semicolon" },
   ["<leader>"] = { "i <esc>l", "Insert space" },
   ["B"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
-  ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
-  ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find text" },  --Find text
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },                --Start page
-  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
   ["F"] = { "<cmd>Telescope find_files<cr>", "Find Files" },  --Find files
+  ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
+  -- P = Packer
+  -- S = Spellcheck
+  ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find text" },  --Find text
+  -- c = comment box
+  -- g = git
+  -- l = lsp
+  -- s = search
+  -- t = terminal
+  ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },    --Explorer
   ["h"] = { "<cmd>lua vim.opt.hlsearch = true<CR>", "Enable Highlight" },      --Enable hl search
   ["hc"] = { "<cmd>ColorizerToggle<cr>", "Hex colors" },    --Explorer
   ["p"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
@@ -107,6 +112,21 @@ local mappings = {
     i = { "<cmd>PackerInstall<cr>", "Install" },
     s = { "<cmd>PackerSync<cr>", "Sync" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
+  },
+
+  S = {
+    name = "Spell Check",
+    e = {"<cmd>lua vim.cmd 'setlocal spell! spelllang=en_us'<cr>", "Toggle English"},
+    s = {"<cmd>lua vim.cmd 'setlocal spell! spelllang=es_es'<cr>", "Toggle Spanish"},
+  },
+
+  a = {
+    name = "Auto-options",
+  c = { "<cmd>lua vim.cmd'setlocal formatoptions+=cro'<cr>", "Auto-comment on" },
+  C = { "<cmd>lua vim.cmd'setlocal formatoptions-=cro'<cr>", "Auto-comment off" },
+  i = { "<cmd>lua vim.cmd'setlocal autoindent'<cr>", "Auto-indent on" },
+  I = { "<cmd>lua vim.cmd'setlocal noautoindent'<cr>", "Auto-indent off" },
+
   },
 
   c = {
@@ -159,6 +179,7 @@ local mappings = {
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols", },
   },
+
   s = {
     name = "Search",
     C = { "<cmd>Telescope commands<cr>", "Commands" },

@@ -40,6 +40,7 @@ local options = {
   sidescrolloff = 8,
   guifont = "JetBrainsMono Nerd Font:h13",  -- the font used in graphical neovim applications
   fdm = "marker",				                    -- Marker fold method {{{}}}
+  wildmode = "longest,list,full"              -- Better tab completion
 }
 
 o.shm:append "I"				                    -- Start screen
@@ -51,12 +52,7 @@ for k, v in pairs(options) do               -- abreviando vim.opt.x con local op
   o[k] = v
 end
 
-vim.cmd "set whichwrap+=<,>,[,],h,l" 		                  -- More wraps
-vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]] -- Disable autocoment
-
 vim.g.dracula_colors = {
-  --bg = "#242630",
   bg = "#282A36",
-  --comment = "#778bc7",
   comment = "#7a8bcc",
 }
