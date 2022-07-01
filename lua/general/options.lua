@@ -40,7 +40,7 @@ local options = {
   sidescrolloff = 8,
   guifont = "JetBrainsMono Nerd Font:h13",  -- the font used in graphical neovim applications
   fdm = "marker",				                    -- Marker fold method {{{}}}
-  wildmode = "longest,list,full"              -- Better tab completion
+  wildmode = "longest,full"              -- Better tab completion
 }
 
 o.shm:append "I"				                    -- Start screen

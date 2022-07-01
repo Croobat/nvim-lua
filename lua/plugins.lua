@@ -221,6 +221,8 @@ return packer.startup(function(use)
   use { "folke/zen-mode.nvim", cmd = { 'ZenMode' } }
   -- Keymap reminder
   use { "folke/which-key.nvim", config = "require 'keys.whichkey'" }
+  -- Vim wiki
+  use { "vimwiki/vimwiki", config = "require 'config.vimwiki'" }
 
   --## EOF ## {{{
   -- Automatically set up your configuration after cloning packer.nvim
