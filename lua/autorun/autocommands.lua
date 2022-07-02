@@ -30,7 +30,15 @@
     autocmd FileType markdown setlocal wrap
     autocmd FileType markdown setlocal spell
   augroup end
- ]]
+
+  augroup _vimwiki
+    autocmd!
+    autocmd Filetype wiki TSBufDisable indent
+    autocmd Filetype wiki set wrap
+    autocmd Filetype wiki set linebreak
+    autocmd BufWritePre *.wiki %global/\%>85v/normal! gqq
+  augroup end
+]]
 
 -- vim.cmd "set whichwrap+=<,>,[,],h,l" 		                  -- More wraps
 -- vim.cmd[[autocmd FileType * setlocal formatoptions-=cro]] -- Disable autocoment

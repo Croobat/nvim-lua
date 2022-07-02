@@ -52,8 +52,8 @@ keymap("n", "<A-l>", "<C-w>l", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
@@ -108,12 +108,12 @@ keymap("n", "QQ", ":Bdelete<cr>", opts)
 -- keymap("n", "<leader>f", ":lua vim.lsp.buf.formatting()<cr>", opts)
 
 -- Toggleterm
-keymap("n", "\\g", ":lua _LAZYGIT_TOGGLE()<cr>", opts)
-keymap("n", "\\n", ":lua _NODE_TOGGLE()<cr>", opts)
-keymap("n", "\\d", ":lua _NCDU_TOGGLE()<cr>", opts)
-keymap("n", "\\h", ":lua _HTOP_TOGGLE()<cr>", opts)
-keymap("n", "\\p", ":lua _PYTHON_TOGGLE()<cr>", opts)
-keymap("n", "\\l", ":lua _LIVESERVER_TOGGLE()<cr>", opts)
+-- keymap("n", "\\g", ":lua _LAZYGIT_TOGGLE()<cr>", opts)
+-- keymap("n", "\\n", ":lua _NODE_TOGGLE()<cr>", opts)
+-- keymap("n", "\\d", ":lua _NCDU_TOGGLE()<cr>", opts)
+-- keymap("n", "\\h", ":lua _HTOP_TOGGLE()<cr>", opts)
+-- keymap("n", "\\p", ":lua _PYTHON_TOGGLE()<cr>", opts)
+-- keymap("n", "\\l", ":lua _LIVESERVER_TOGGLE()<cr>", opts)
 
 --}}}
 

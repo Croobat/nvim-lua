@@ -105,6 +105,37 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },                    --Save
   ["z"] = { "<cmd>:ZenMode<cr>", "Zen mode" },
 
+  L = {
+    name = "Latex",
+    i = {"", "Info"},
+    I = {"", "Info full"},
+    x = {"", "Reload"},
+    X = {"", "Reload state"},
+    s = {"", "Toggle main"},
+    q = {"", "Log"},
+    a = {"", "Context menu"},
+
+    L = {"", "Compile"},
+    o = {"", "Compile output"},
+    l = {"", "Compile selected"},
+    k = {"", "Stop"},
+    K = {"", "Stop all"},
+    e = {"", "Show errors"},
+    c = {"", "Clean auxiliary files"},
+    C = {"", "Clean full"},
+    g = {"", "Status"},
+    G = {"", "Status all"},
+
+    t = {"", "TOC open"},
+    T = {"", "Toc toggle"},
+    v = {"", "View"},
+    r = {"", "Reverse search"},
+    m = {"", "Imaps list"},
+
+    wc = {"<cmd>VimtexCountWords", "Word count"},
+    lc = {"<cmd>VimtexCountLetters", "Letter count"},
+  },
+
   P = {
     name = "Packer",
     S = { "<cmd>PackerStatus<cr>", "Status" },
@@ -195,11 +226,13 @@ local mappings = {
   t = {
     name = "Terminal",
     T = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-    f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-    h = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Horizontal" },
+    f = { "<cmd>ToggleTerm direction=float<cr>", "Float terminal" },
+    g = { "<cmd>lua _LAZYGIT_TOGGLE()<cr>", "Git" },
+    h = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Hterminal" },
+    l = { "<cmd>lua _LIVESERVER_TOGGLE()<cr>", "HTML server" },
     n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
     p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
-    t = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Vertical" },
+    t = { "<cmd>ToggleTerm size=15 direction=horizontal<cr>", "Vterminal" },
     u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
     v = { "<cmd>ToggleTerm size=60 direction=vertical<cr>", "Vertical" },
   },
