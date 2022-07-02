@@ -31,6 +31,11 @@ keymap("", "<leader>q", "<Nop>", opts)
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- ## Global ## --{{{
+
+keymap("", "<C-a>", "<ESC>^", opts)
+keymap("", "<C-e>", "<ESC>$", opts)--}}}
+
 -- ## Normal ## -- {{{
 
 --faster scrolling
@@ -128,6 +133,13 @@ keymap("i", "<A-l>", "<ESC>la", opts)
 keymap("i", "<A-h>", "<ESC>ha", opts)
 keymap("i", "<A-j>", "<ESC>ja", opts)
 keymap("i", "<A-k>", "<ESC>ka", opts)
+
+-- Emacs like keys
+keymap("i", "<C-a>", "<ESC>I", opts)
+keymap("i", "<C-e>", "<ESC>A", opts)
+keymap("i", "<M-f>", "<ESC><Space>Wi", opts)
+keymap("i", "<M-b>", "<ESC>Bi", opts)
+keymap("i", "<M-d>", "<ESC>ciw", opts)
 
 --}}}
 
