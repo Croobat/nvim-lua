@@ -75,6 +75,9 @@ keymap("n", "k", "gk", opts)
 keymap("n", "<TAB>", ":bnext<CR><CR>", opts)
 keymap("n", "<S-TAB>", ":bprevious<CR><CR>", opts)
 
+-- Substitute
+keymap("n", "<C-s>", ":%s///g<left><left><left>", opts)
+
 -- Folding
 keymap("n", ",", "za", opts)
 -- keymap("n", "<leader>m", "<esc>I## {{{<CR>  <backspace><CR>}}}<esc>kkI##  <esc>i", opts)
@@ -129,8 +132,8 @@ keymap("n", "QQ", ":Bdelete<cr>", opts)
 keymap("i", "jk", "<ESC>", opts)
 
 -- Better insert navigation
-keymap("i", "<A-l>", "<ESC>la", opts)
-keymap("i", "<A-h>", "<ESC>ha", opts)
+keymap("i", "<A-l>", "<ESC>lli", opts)
+keymap("i", "<A-h>", "<ESC>i", opts)
 keymap("i", "<A-j>", "<ESC>ja", opts)
 keymap("i", "<A-k>", "<ESC>ka", opts)
 
@@ -172,6 +175,9 @@ keymap("v", "<leader>cl", "<cmd>lua require('comment-box').cline(1)<cr>", opts)
 keymap("v", "<leader>cL", "<cmd>lua require('comment-box').cline(2)<cr>", opts)
 keymap("v", "<leader>al", "<cmd>lua require('comment-box').cline(10)<cr>", opts)
 
+-- Substitute
+keymap("n", "<C-s>", ":%s///g<left><left><left>", opts)
+
 --}}}
 
 --## Visual Block ## {{{
@@ -181,6 +187,9 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+
+-- Substitute
+keymap("n", "<C-s>", ":%s///g<left><left><left>", opts)
 
 --faster scrolling
 keymap("x", "<C-j>", "5j", opts)

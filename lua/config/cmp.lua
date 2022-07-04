@@ -111,10 +111,10 @@ cmp.setup {
       --vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
-        nvim_lua = "[NVIM_LUA]",
-        nvim_lsp = "[LSP]",
         npm = "[NPM]",
         luasnip = "[Snippet]",
+        nvim_lua = "[NVIM_LUA]",
+        nvim_lsp = "[LSP]",
         buffer = "[Buffer]",
         path = "[Path]",
       })[entry.source.name]
@@ -123,10 +123,10 @@ cmp.setup {
   },--}}}
 
   sources = {--{{{
-    { name = "nvim_lua" },  -- Lua completion
-    { name = "nvim_lsp" },  -- Lsp completion
     { name = "npm" },       -- npm completions when in package.json
     { name = "luasnip" },   -- Main snippets
+    { name = "nvim_lua" },  -- Lua completion
+    { name = "nvim_lsp" },  -- Lsp completion
     { name = "buffer" },    -- Text completion
     { name = "path" },      -- Folder path completion
   },--}}}

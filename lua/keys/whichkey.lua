@@ -89,6 +89,7 @@ local mappings = {
   ["B"] = { "<cmd>Telescope buffers<cr>", "Find Buffers" },  --Telescope buffers
   ["F"] = { "<cmd>Telescope find_files<cr>", "Find Files" },  --Find files
   ["H"] = { "<cmd>nohlsearch<CR>", "Disable Highlight" },    --Disable hl search
+  ["Q"] = { "<cmd>:Bdeleteexcept<CR>", "Close Other Buffers" },      --Close buffer
   -- P = Packer
   -- S = Spellcheck
   ["f"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find text" },  --Find text

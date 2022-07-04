@@ -117,7 +117,7 @@ return packer.startup(function(use)
     config = "require 'config.bufferline'" }
 
   -- Close buffers
-  use { "moll/vim-bbye", cmd = "Bdelete" }
+  use { "moll/vim-bbye" }
 
   -- Project manager
   use { "ahmedkhalf/project.nvim", config = "require 'config.project'" }
