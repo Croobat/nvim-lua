@@ -91,7 +91,7 @@ lualine.setup({
     },
 		lualine_c = {},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { branch, diagnostics, diff, "encoding"},
+		lualine_x = { diagnostics, branch, diff, "encoding"},
 		lualine_y = { location },
 		lualine_z = { progress },
 	},

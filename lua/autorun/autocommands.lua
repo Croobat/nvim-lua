@@ -38,6 +38,12 @@
     autocmd Filetype wiki set linebreak
     autocmd BufWritePre *.wiki %global/\%>85v/normal! gqq
   augroup end
+
+  augroup _tex
+    autocmd!
+    autocmd Filetype tex set wrap
+    autocmd Filetype tex set linebreak
+  augroup end
 ]]
 
 -- vim.cmd "set whichwrap+=<,>,[,],h,l" 		                  -- More wraps

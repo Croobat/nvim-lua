@@ -210,7 +210,7 @@ return packer.startup(function(use)
   --  setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" },
   --  cmd = { 'MarkdownPreview' } })
   -- Latex
-  use { "lervag/vimtex", ft = { "tex" } }
+  use { "lervag/vimtex", ft = { "tex" }, config = "require 'config.vimtex'" }
 
   -- ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
   -- ┃   ## Miscellaneous (10ms) ## ┃
